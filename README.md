@@ -1,3 +1,3 @@
 # GraphQLProject
 Training project
-# Учебный проект по GraphQL
+# Основные запросы GraphQL
