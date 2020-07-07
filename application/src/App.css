@@ -3,7 +3,7 @@
     height: 100vh;
     background-color: rgba(85, 255, 204, 0.397);
     display: flex;
-    justify-content: space-around;
+    justify-content: space-around;    
 }
 .header {
     width: 100%;

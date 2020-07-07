@@ -10,12 +10,26 @@ class Movies extends Component {
          
         return (
             <div className="movies">
-                <h1>Movies</h1>
-                <ul>
-                    {   movies.map((movie, i) => {
-                            return ( <li key={movie.id}>{movie.name +"  ( "+ movie.genre + ", Rate : " + movie.rate + ", director: " + movie.director.name + " )"}</li>)
-                        }) }
-                </ul>
+                <table>
+                    <caption>Movies</caption>
+                    <thead>
+                        <tr>
+                            <td>Name</td><td>Genre</td><td>Director</td><td>Rate</td>
+                        </tr>
+                    </thead>
+                                       
+                    <tbody>
+                            {movies.map((movie, i) => {
+                                        return ( 
+                                            <tr key={movie.id}>
+                                                <td>{movie.name}</td><td>{movie.genre}</td><td>{movie.director.name}</td><td>{movie.rate}</td>
+                                            </tr>
+                                        )
+                                }) }
+                    </tbody>                    
+                </table>
+                   
+                
             </div>
         )
     }
