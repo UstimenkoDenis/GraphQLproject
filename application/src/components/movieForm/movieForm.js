@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './movieForm.css';
+import withHocs from './movieFormHoc';
+import { addMovieMutation } from './mutations';
 
 export default class MovieForm extends Component {
     constructor(props) {
@@ -38,10 +40,21 @@ export default class MovieForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
+        const { addMovie } = this.props;
+        console.log(this.props);
+        addMovie({ 
+            name: this.state.name, 
+            genre: this.state.genre,
+            rate: Number(this.state.rate),              
+            director: this.state.director,
+        });    
     }
 
     
     render() {
+        // const { data = {} } = this.props;
+        // const { directors = [] } = data;
+        // console.log(directors);
         return (
             <form onSubmit={this.handleSubmit}>
                 <label>
@@ -58,7 +71,7 @@ export default class MovieForm extends Component {
                 </label>   
                 <label>
                     Director
-                    <input type="text"value={this.state.director} onChange={this.handleChangeDirector}/>
+                    <select type=""value={this.state.director} onChange={this.handleChangeDirector}/>
                 </label>          
                 <input type="submit" value="Add"/>
             </form>

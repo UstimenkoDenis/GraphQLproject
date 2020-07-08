@@ -13,7 +13,7 @@ class Directors extends Component {
                 <h1>Directors</h1>
                 <ul>
                     {   directors.map((director, i) => {
-                            return ( <li key={director.id}>{director.name}</li>)
+                            return ( <li key={director.id}>{director.name + " (" + director.age + " years old)"}</li>)
                         }) }
                 </ul>                
             </div>

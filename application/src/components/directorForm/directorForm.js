@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './directorForm.css';
+import withHocs from './directorsFormHoc';
+import { addDirectorMutation } from './mutations';
 
-export default class DirectorForm extends Component {
+class DirectorForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -24,6 +26,12 @@ export default class DirectorForm extends Component {
     
     handleSubmit = (event) => {
         event.preventDefault();
+        const { addDirector } = this.props;
+        console.log(this.props);
+        addDirector({ 
+            name: this.state.name, 
+            age: Number(this.state.age), 
+        });       
     }
 
     render() {
@@ -42,3 +50,4 @@ export default class DirectorForm extends Component {
         )
     }    
 }
+export default withHocs(DirectorForm);
