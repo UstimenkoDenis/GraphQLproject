@@ -22,7 +22,8 @@ class Directors extends Component {
                             {directors.map((director, i) => {
                                     return ( 
                                         <tr key={i}>
-                                            <td>{director.name}</td><td>{director.age}</td>
+                                            <td>{director.name}</td>
+                                            <td>{director.age}</td>
                                             <td>
                                                 <table>
                                                    <tbody>
@@ -31,7 +32,12 @@ class Directors extends Component {
                                                             })}
                                                    </tbody>                                                
                                                 </table>  
-                                            </td>                                               
+                                            </td>                                                 
+                                            <td>
+                                                <div className="delete">
+                                                    X
+                                                </div>
+                                            </td>                                              
                                         </tr>
                                     )
                                 }) }

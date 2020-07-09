@@ -1,12 +1,24 @@
 .directors {
     text-align: center;
+}
 
-}
-li {
-    list-style-type: none;
-    padding: 20px;
+.delete {
     margin: 5px;
-    background-color: rgba(255, 255, 255, 0.384);
-    border-radius: 5px;
-    font-size: 20px;
+    color: #fff;
+    background-color: rgb(199, 137, 178);
+    padding: 3px 10px;
+    border-radius: 50%;     
+    display: flex;
+    justify-content: center; 
+    align-items: center;
 }
+ .delete:hover {
+    cursor: pointer;          
+    padding: 4px 11px;
+    box-shadow: 0 0 5px rgb(136, 70, 114);
+ }
+ .delete:active {
+    cursor: pointer;          
+    padding: 3px 10px;
+    box-shadow: 0 0 0;
+ }

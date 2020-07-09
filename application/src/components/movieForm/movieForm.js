@@ -10,7 +10,7 @@ class MovieForm extends Component {
             name: '',
             genre: '',
             rate: '',
-            directorId: '',
+            directorId: '5ef90dbae092c32eb84fe826',
         }        
     }
     
