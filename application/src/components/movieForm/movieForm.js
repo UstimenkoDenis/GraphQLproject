@@ -3,14 +3,14 @@ import './movieForm.css';
 import withHocs from './movieFormHoc';
 import { addMovieMutation } from './mutations';
 
-export default class MovieForm extends Component {
+class MovieForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
             name: '',
             genre: '',
             rate: '',
-            director: '',
+            directorId: '',
         }        
     }
     
@@ -34,27 +34,25 @@ export default class MovieForm extends Component {
 
     handleChangeDirector = (event) => {
         this.setState({
-            director: event.target.value,            
+            directorId: event.target.value,            
         })
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
-        const { addMovie } = this.props;
-        console.log(this.props);
+        const { addMovie } = this.props;       
         addMovie({ 
             name: this.state.name, 
             genre: this.state.genre,
             rate: Number(this.state.rate),              
-            director: this.state.director,
+            directorId: this.state.directorId,
         });    
     }
 
     
     render() {
-        // const { data = {} } = this.props;
-        // const { directors = [] } = data;
-        // console.log(directors);
+        const { data = {} } = this.props;
+        const { directors = [] } = data;        
         return (
             <form onSubmit={this.handleSubmit}>
                 <label>
@@ -71,10 +69,16 @@ export default class MovieForm extends Component {
                 </label>   
                 <label>
                     Director
-                    <select type=""value={this.state.director} onChange={this.handleChangeDirector}/>
+                    <select value={this.state.director} onChange={this.handleChangeDirector}>
+                        {   directors.map((director, i) => {
+                                return ( <option key={director.id} value={director.id}>{director.name}</option> )
+                            }) }
+                    </select>
                 </label>          
                 <input type="submit" value="Add"/>
             </form>
         )
     }    
 }
+
+export default withHocs(MovieForm);

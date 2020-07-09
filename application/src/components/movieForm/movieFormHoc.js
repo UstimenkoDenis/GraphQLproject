@@ -7,7 +7,7 @@ import { directorsQuery } from './queries';
 
 const withGraphqlAdd = graphql(addMovieMutation, {
     props: ({ mutate }) => ({
-        addDirector: movie => mutate({
+        addMovie: movie => mutate({
             variables: movie,
             refetchQueries: [{ query: moviesQuery }],
         }),
