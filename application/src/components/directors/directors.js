@@ -9,13 +9,7 @@ class Directors extends Component {
        const { directors=[] } = data;
 
         return (
-            <div className="directors">
-                {/* <h1>Directors</h1>
-                <ul>
-                    {   directors.map((director, i) => {
-                            return ( <li key={director.id}>{director.name + " (" + director.age + " years old)"}</li>)
-                        }) }
-                </ul>                 */}
+            <div className="directors">               
                  <table>
                     <caption>Directors</caption>
                     <thead>
@@ -27,11 +21,17 @@ class Directors extends Component {
                     <tbody>
                             {directors.map((director, i) => {
                                     return ( 
-                                        <tr key={director.id}>
+                                        <tr key={i}>
                                             <td>{director.name}</td><td>{director.age}</td>
-                                            <td>{director.movies.map((movie, j) => {
-                                                    return ( <tr><td>{movie.name}</td></tr>)
-                                                })}</td> 
+                                            <td>
+                                                <table>
+                                                   <tbody>
+                                                        {director.movies.map((movie, j) => {
+                                                                return ( <tr key={j}><td>{movie.name}</td></tr>)
+                                                            })}
+                                                   </tbody>                                                
+                                                </table>  
+                                            </td>                                               
                                         </tr>
                                     )
                                 }) }
