@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import './movies.css';
+import React, { Component } from 'react';
+import styles from './movies.css';
 
 import withHocs from './moviesHOC';
 
@@ -19,10 +19,18 @@ class Movies extends Component {
                     </thead>
                                        
                     <tbody>
-                            {movies.map((movie, i) => {
+                            { movies.map(( movie, i ) => {
                                         return ( 
-                                            <tr key={movie.id}>
-                                                <td>{movie.name}</td><td>{movie.genre}</td><td>{movie.director.name}</td><td>{movie.rate}</td>
+                                            <tr key={ movie.id }>
+                                                <td>{ movie.name }</td>
+                                                <td>{ movie.genre }</td>
+                                                <td>{ movie.director.name }</td>
+                                                <td>{ movie.rate }</td>
+                                                <td>
+                                                <div className="delete">
+                                                    X
+                                                </div>
+                                            </td>  
                                             </tr>
                                         )
                                 }) }
