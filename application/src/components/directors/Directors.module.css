@@ -11,13 +11,33 @@
     justify-content: center; 
     align-items: center;   
 }
- .delete:hover {
-    cursor: pointer;          
-    padding: 4px 11px;
-    box-shadow: 0 0 5px rgb(136, 70, 114);
- }
- .delete:active {
-    cursor: pointer;          
+    .delete:hover {
+        cursor: pointer;          
+        padding: 4px 11px;
+        box-shadow: 0 0 5px rgb(136, 70, 114);
+    }
+    .delete:active {
+        cursor: pointer;          
+        padding: 3px 10px;
+        box-shadow: 0 0 0;
+    }
+.edit {
+    margin: 5px;
+    color: #fff;
+    background-color: rgb(199, 184, 137);
     padding: 3px 10px;
-    box-shadow: 0 0 0;
- }
+    border-radius: 50%;     
+    display: flex;
+    justify-content: center; 
+    align-items: center;   
+}
+    .edit:hover {
+        cursor: pointer;          
+        padding: 4px 11px;
+        box-shadow: 0 0 5px rgb(136, 70, 114);
+    }
+    .edit:active {
+        cursor: pointer;          
+        padding: 3px 10px;
+        box-shadow: 0 0 0;
+    }

@@ -36,8 +36,7 @@ class Movies extends Component {
                                                 <td>{movie.rate}</td>
                                                 <td className= {styles.delete}
                                                     onClick={ () => {
-                                                        return (
-                                                            
+                                                        return (                                                            
                                                             this.setState({ 
                                                                 isOpen: true,
                                                                 currentMovieName: movie.name,
@@ -45,7 +44,18 @@ class Movies extends Component {
                                                             })                                                           
                                                         )}
                                                     }
-                                                > X </td>                                                       
+                                                > Delete </td> 
+                                                <td className= {styles.edit}
+                                                    onClick={ () => {
+                                                        return (                                                            
+                                                            this.setState({ 
+                                                                isOpen: true,
+                                                                currentMovieName: movie.name,
+                                                                currentMovieId: movie.id
+                                                            })                                                           
+                                                        )}
+                                                    }
+                                                > Edit </td>                                                       
                                             </tr>
                                         )
                                 }) }

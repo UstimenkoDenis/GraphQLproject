@@ -2,15 +2,18 @@ import React, {Component} from 'react';
 import withHocs from './directorsHOC';
 import styles from './Directors.module.css';
 import DirectorsDialog from '../directorsDialog'
+import UpdateDirectorsDialog from '../updateDirectorsDialog'
 
 class Directors extends Component {
     state = {
         isOpen: false,
+        isUpdateOpen: false,
         currentDirectorId: '',
-        currentDirectorName: ''
+        currentDirectorName: '',
+        currentDirectorAge: 0
     }
     handleClose = () => {        
-        this.setState({ isOpen: false })
+        this.setState({ isOpen: false, isUpdateOpen: false })
     }
 
     render() {
@@ -51,10 +54,20 @@ class Directors extends Component {
                                                             currentDirectorId: director.id
                                                         })
                                                      }} 
-                                                >
-                                                    X
-                                                </div>
-                                            </td>                                              
+                                                > X </div>
+                                            </td> 
+                                            <td>
+                                                <div className={styles.edit}
+                                                        onClick={ () => {
+                                                            this.setState({
+                                                                isUpdateOpen: true,
+                                                                currentDirectorName: director.name,
+                                                                currentDirectorId: director.id,
+                                                                currentDirectorAge: director.age
+                                                            })
+                                                        }} 
+                                                > E </div>
+                                            </td>                                             
                                         </tr>
                                     )
                                 }) }
@@ -68,6 +81,15 @@ class Directors extends Component {
                 > 
                 <p>Do you really want to delete?</p> 
                 </DirectorsDialog> 
+                <UpdateDirectorsDialog 
+                    id={this.state.currentDirectorId}
+                    name={this.state.currentDirectorName}
+                    age={this.state.currentDirectorAge}
+                    isUpdateOpen={this.state.isUpdateOpen}
+                    onClose={this.handleClose}
+                > 
+                <p>Do you really want to delete?</p> 
+                </UpdateDirectorsDialog> 
             </div>
         )              
     }
