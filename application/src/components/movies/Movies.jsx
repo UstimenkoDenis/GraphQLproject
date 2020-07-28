@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import styles from './Movies.module.css';
 import MoviesDialog from '../moviesDialog'
+import UpdateMoviesDialog from '../updateMoviesDialog'
 import withHocs from './moviesHOC';
 
 class Movies extends Component {
     state = {
         isOpen: false,
+        isUpdateMovieOpen: false,
         currentMovieName: '',
+        currentMovieGenre: '',
+        currentMovieRate: 0,
         currentMovieId: ''
     }    
     handleClose = () => {        
-        this.setState({ isOpen: false })
+        this.setState({ isOpen: false, isUpdateMovieOpen: false, })
     }
    
     render() {
@@ -49,9 +53,11 @@ class Movies extends Component {
                                                     onClick={ () => {
                                                         return (                                                            
                                                             this.setState({ 
-                                                                isOpen: true,
+                                                                isUpdateMovieOpen: true,
                                                                 currentMovieName: movie.name,
-                                                                currentMovieId: movie.id
+                                                                currentMovieId: movie.id,
+                                                                currentMovieGenre: movie.genre,
+                                                                currentMovieRate: movie.rate
                                                             })                                                           
                                                         )}
                                                     }
@@ -68,7 +74,15 @@ class Movies extends Component {
                     onClose={this.handleClose}                   
                 > 
                 <p>Do you really want to delete?</p> 
-                </MoviesDialog>             
+                </MoviesDialog>  
+                <UpdateMoviesDialog 
+                    id={this.state.currentMovieId}
+                    name={this.state.currentMovieName}
+                    rate={this.state.currentMovieRate}
+                    genre={this.state.currentMovieGenre}
+                    isUpdateMovieOpen={this.state.isUpdateMovieOpen}
+                    onClose={this.handleClose}                   
+                />                                            
             </div>
         )
     }

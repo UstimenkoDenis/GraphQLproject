@@ -87,9 +87,7 @@ class Directors extends Component {
                     age={this.state.currentDirectorAge}
                     isUpdateOpen={this.state.isUpdateOpen}
                     onClose={this.handleClose}
-                > 
-                <p>Do you really want to delete?</p> 
-                </UpdateDirectorsDialog> 
+                />                  
             </div>
         )              
     }
