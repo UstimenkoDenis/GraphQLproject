@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styles from './Movies.module.css';
-import Modal from '../modal'
+import MoviesDialog from '../moviesDialog'
 import withHocs from './moviesHOC';
 
 class Movies extends Component {
@@ -9,14 +9,10 @@ class Movies extends Component {
         currentMovieName: '',
         currentMovieId: ''
     }    
-    handleCancel = () => {
-       console.log('Cancelled')
-       this.setState({ isOpen: false })
-    }
-    handleSubmit = () => {
-        console.log('Submitted')
+    handleClose = () => {        
         this.setState({ isOpen: false })
     }
+   
     render() {
         const { data } = this.props;
         const { movies = [] } = data;
@@ -41,6 +37,7 @@ class Movies extends Component {
                                                 <td className= {styles.delete}
                                                     onClick={ () => {
                                                         return (
+                                                            
                                                             this.setState({ 
                                                                 isOpen: true,
                                                                 currentMovieName: movie.name,
@@ -54,14 +51,13 @@ class Movies extends Component {
                                 }) }
                     </tbody>                    
                 </table>     
-                <Modal 
+                <MoviesDialog 
                     title={this.state.currentMovieName}
                     isOpen={this.state.isOpen}
-                    onCancel={this.handleCancel}
-                    onSubmit={this.handleSubmit}
+                    onClose={this.handleClose}                   
                 > 
                 <p>Do you really want to delete?</p> 
-                </Modal>             
+                </MoviesDialog>             
             </div>
         )
     }

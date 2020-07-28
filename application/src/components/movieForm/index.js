@@ -1,2 +1,2 @@
-import movieForm from './movieForm';
+import movieForm from './MovieForm';
 export default movieForm;

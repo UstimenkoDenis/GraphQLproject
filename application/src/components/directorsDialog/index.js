@@ -1,2 +1,2 @@
-import DirectorsDialog from './directorsDialog';
+import DirectorsDialog from './DirectorsDialog.jsx';
 export default DirectorsDialog;

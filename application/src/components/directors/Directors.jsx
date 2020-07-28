@@ -1,21 +1,15 @@
 import React, {Component} from 'react';
 import withHocs from './directorsHOC';
 import styles from './Directors.module.css';
-import Modal from '../modal'
+import DirectorsDialog from '../directorsDialog'
+
 class Directors extends Component {
     state = {
         isOpen: false,
         currentDirectorId: '',
         currentDirectorName: ''
     }
-    
-    handleCancel = () => {
-        console.log('Cancelled')
-        this.setState({ isOpen: false })
-    }
-
-    handleSubmit = () => {
-        console.log('Submitted')
+    handleClose = () => {        
         this.setState({ isOpen: false })
     }
 
@@ -66,14 +60,13 @@ class Directors extends Component {
                                 }) }
                     </tbody>                    
                 </table>
-                <Modal 
+                <DirectorsDialog 
                     title={this.state.currentDirectorName}
                     isOpen={this.state.isOpen}
-                    onCancel={this.handleCancel}
-                    onSubmit={this.handleSubmit}
+                    onClose={this.handleClose}
                 > 
                 <p>Do you really want to delete?</p> 
-                </Modal> 
+                </DirectorsDialog> 
             </div>
         )              
     }

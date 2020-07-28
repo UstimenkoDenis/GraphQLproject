@@ -3,4 +3,4 @@ import  { graphql } from 'react-apollo';
 
 import { moviesQuery } from './queries';
 
-export default compose(graphql(moviesQuery));
+export default compose(graphql(moviesQuery), graphql(moviesQuery));
