@@ -61,6 +61,7 @@ class Directors extends Component {
                     </tbody>                    
                 </table>
                 <DirectorsDialog 
+                    id={this.state.currentDirectorId}
                     title={this.state.currentDirectorName}
                     isOpen={this.state.isOpen}
                     onClose={this.handleClose}

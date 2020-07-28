@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import styles from './MoviesDialog.module.css'
 
-export default class MoviesDialog extends Component {
-    constructor() {
-        super()
-    }
-    
+import withHocs from './MoviesDialogHOC'
+
+class MoviesDialog extends Component {
+        
     handleDelete = () => {
-       const {onClose} = this.props
+       const { id, onClose, deleteMovie } = this.props
+       deleteMovie(id)
        onClose()
     }
     
@@ -51,3 +51,4 @@ MoviesDialog.defaultProps = {
     onClose: () => {},   
     children: null,
 };
+export default withHocs(MoviesDialog)

@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import styles from './DirectorsDialog.module.css'
 
-export default class DirectorsDialog extends Component {
-    constructor() {
-        super()
-    }
-    
+import withHocs from './DirectorsDialogHOC'
+class DirectorsDialog extends Component {
+       
     handleDelete = () => {
-       const {onClose} = this.props
-       onClose()
+       const {id, onClose, deleteDirector} = this.props
+       deleteDirector(id)
+       onClose()       
     }
     
     render() {  
@@ -51,3 +50,4 @@ DirectorsDialog.defaultProps = {
     onClose: () => {},   
     children: null,
 };
+export default withHocs(DirectorsDialog)

@@ -52,6 +52,7 @@ class Movies extends Component {
                     </tbody>                    
                 </table>     
                 <MoviesDialog 
+                    id={this.state.currentMovieId}
                     title={this.state.currentMovieName}
                     isOpen={this.state.isOpen}
                     onClose={this.handleClose}                   
