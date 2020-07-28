@@ -1,15 +1,30 @@
 import React, {Component} from 'react';
-import './directors.css';
-
 import withHocs from './directorsHOC';
-
+import styles from './Directors.module.css';
+import Modal from '../modal'
 class Directors extends Component {
+    state = {
+        isOpen: false,
+        currentDirectorId: '',
+        currentDirectorName: ''
+    }
+    
+    handleCancel = () => {
+        console.log('Cancelled')
+        this.setState({ isOpen: false })
+    }
+
+    handleSubmit = () => {
+        console.log('Submitted')
+        this.setState({ isOpen: false })
+    }
+
     render() {
-       const { data={} } = this.props;
-       const { directors=[] } = data;
+       const { data = {} } = this.props;
+       const { directors = [] } = data;
 
         return (
-            <div className="directors">               
+            <div className={styles.directors}>               
                  <table>
                     <caption>Directors</caption>
                     <thead>
@@ -34,7 +49,15 @@ class Directors extends Component {
                                                 </table>  
                                             </td>                                                 
                                             <td>
-                                                <div className="delete">
+                                                <div className={styles.delete}
+                                                     onClick={ () => {
+                                                        this.setState({
+                                                            isOpen: true,
+                                                            currentDirectorName: director.name,
+                                                            currentDirectorId: director.id
+                                                        })
+                                                     }} 
+                                                >
                                                     X
                                                 </div>
                                             </td>                                              
@@ -43,6 +66,14 @@ class Directors extends Component {
                                 }) }
                     </tbody>                    
                 </table>
+                <Modal 
+                    title={this.state.currentDirectorName}
+                    isOpen={this.state.isOpen}
+                    onCancel={this.handleCancel}
+                    onSubmit={this.handleSubmit}
+                > 
+                <p>Do you really want to delete?</p> 
+                </Modal> 
             </div>
         )              
     }

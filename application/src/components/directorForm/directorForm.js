@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import './directorForm.css';
-import withHocs from './directorsFormHoc';
-import { addDirectorMutation } from './mutations';
+import React, { Component } from 'react'
+
+import withHocs from './directorsFormHoc'
+import { addDirectorMutation } from './mutations'
+import styles from './DirectorForm.module.css'
 
 class DirectorForm extends Component {
     constructor(props) {
@@ -36,7 +37,7 @@ class DirectorForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form className={ styles.form } onSubmit={this.handleSubmit}>
                 <label>
                     Name
                     <input type="text" value={this.state.name} onChange={this.handleChangeName}/>

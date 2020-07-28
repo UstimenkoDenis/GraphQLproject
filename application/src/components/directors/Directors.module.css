@@ -1,7 +1,6 @@
 .directors {
     text-align: center;
 }
-
 .delete {
     margin: 5px;
     color: #fff;
@@ -10,7 +9,7 @@
     border-radius: 50%;     
     display: flex;
     justify-content: center; 
-    align-items: center;
+    align-items: center;   
 }
  .delete:hover {
     cursor: pointer;          

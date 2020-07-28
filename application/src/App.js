@@ -1,7 +1,7 @@
 import React from 'react';
 import Directors from './components/directors';
 import Movies from './components/movies';
-import './App.css';
+import styles from './App.module.css';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider }  from 'react-apollo';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
@@ -17,9 +17,9 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="app">
+        <div>
           <Header/>
-          <div className="body">
+          <div className={styles.app}>
             <Route path = '/' exact component = {()=><h1>Welcome</h1>}/>
             <Route path = '/movies' exact component = {Movies}/>
             <Route path = '/directors' component ={Directors}/>

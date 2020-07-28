@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './movieForm.css';
+import styles from './MovieForm.module.css'
 import withHocs from './movieFormHoc';
 import { addMovieMutation } from './mutations';
 
