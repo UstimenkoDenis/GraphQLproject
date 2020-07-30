@@ -14,21 +14,43 @@ class Movies extends Component {
             currentMovieName: '',
             currentMovieGenre: '',
             currentMovieRate: 0,
-            currentMovieId: ''
+            currentMovieId: '',
+            name: ''
         }  
     }
       
+    handleChange = name => (event) => {
+        this.setState({
+            [name]: event.target.value
+        })
+    }
+
     handleClose = () => {        
         this.setState({ isOpen: false, isUpdateMovieOpen: false, })
     }
-   
+    
+    handleSearch = (e) => {
+        const { data } = this.props
+        const { name } = this.state
+        
+        if(e.charCode === 13) {            
+            data.fetchMore({
+                variables: { name },
+                updateQuery: (previousResult, { fetchMoreResult }) => fetchMoreResult,
+            });
+        }
+    };
+
     render() {
         const { data } = this.props;
         const { movies = [] } = data;
          
         return (
             <div className="movies">
-                <MoviesSearch/>
+                <MoviesSearch 
+                    name={this.state.name} 
+                    handleChange={this.handleChange}
+                    handleSearch={this.handleSearch}/>
                 <table>
                     <caption>Movies</caption>
                     <thead>

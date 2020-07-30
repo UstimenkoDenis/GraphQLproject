@@ -28,7 +28,7 @@ class UpdateDirectorsDialog extends Component {
        onClose()       
     }
     
-    componentWillReceiveProps(newProps) {
+    UNSAFE_componentWillReceiveProps(newProps) {
         const {name, age} = newProps
         this.setState({
             name,

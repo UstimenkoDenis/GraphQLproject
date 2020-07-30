@@ -3,26 +3,17 @@ import styles from './DirectorSearch.module.css'
 
 export default class DirectorsSearch extends Component {
 
-    state = {
-        text: ''
-    }
-
-    handleSubmit = (event) => {
-        this.setState({
-            text: event.target.value
-        })
-    }
-
     render() {
+        const { name, handleChange} = this.props
         return (
-            <form className={styles.form} onSubmit={this.handleSubmit}>
+            <>
                 <input 
                     className={styles.input} 
                     type="text" 
-                    value={this.state.text} 
-                    placeholder="Find..."
-                    onChange={this.handleSubmit}></input>
-            </form>
+                    value={name} 
+                    placeholder="Search..."
+                    onChange={handleChange}></input>
+            </>
         )
     }
 }

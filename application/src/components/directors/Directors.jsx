@@ -20,6 +20,12 @@ class Directors extends Component {
         this.setState({ isOpen: false, isUpdateOpen: false })
     }
 
+    handleChange = name => (event) => {
+        this.setState({
+            [name]: event.target.value
+        })
+    }
+
     render() {
        const { data = {} } = this.props;
        const { directors = [] } = data;

@@ -49,7 +49,7 @@ class UpdateMoviesDialog extends Component {
         onClose()       
     }
 
-    componentWillReceiveProps(newProps) {
+    UNSAFE_componentWillReceiveProps(newProps) {
         const {name, genre, rate, directorId} = newProps
         this.setState({
             name,
