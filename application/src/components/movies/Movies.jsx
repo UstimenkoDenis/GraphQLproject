@@ -13,7 +13,7 @@ class Movies extends Component {
             isUpdateMovieOpen: false,
             currentMovieName: '',
             currentMovieGenre: '',
-            currentMovieRate: '',
+            currentMovieRate: 0,
             currentMovieId: ''
         }  
     }

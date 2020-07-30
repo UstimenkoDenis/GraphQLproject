@@ -53,7 +53,7 @@ class UpdateDirectorsDialog extends Component {
                                     </label>
                                     <label>
                                         Age
-                                        <input type="text"value={this.state.age} onChange={this.handleChangeAge}/>
+                                        <input type="text"value={+this.state.age} onChange={this.handleChangeAge}/>
                                     </label>                                                                   
                             </div>
                             <div className={styles.modalFooter}>

@@ -12,7 +12,7 @@ class Directors extends Component {
             isUpdateOpen: false,
             currentDirectorId: '',
             currentDirectorName: '',
-            currentDirectorAge: ''
+            currentDirectorAge: 0
         }
     }
     

@@ -39,7 +39,8 @@ class DirectorsDialog extends Component {
 
 DirectorsDialog.propTypes = {
     isOpen: PropTypes.bool,
-    name: PropTypes.string,    
+    name: PropTypes.string,  
+    age: PropTypes.number,  
     onClose: PropTypes.func,    
     children: PropTypes.node
 };

@@ -15,9 +15,9 @@ export default class MoviesSearch extends Component {
 
     render() {
         return (
-            <form classname={styles.form} onSubmit={this.handleSubmit}>
+            <form className={styles.form} onSubmit={this.handleSubmit}>
                 <input 
-                    classname={styles.input} 
+                    className={styles.input} 
                     type="text" 
                     value={this.state.text} 
                     placeholder="Find..."
