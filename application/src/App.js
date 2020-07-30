@@ -18,7 +18,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          <Header/>
+          <Header/>          
           <div className={styles.app}>
             <Route path = '/' exact component = {()=><h1>Welcome</h1>}/>
             <Route path = '/movies' exact component = {Movies}/>

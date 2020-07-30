@@ -3,6 +3,7 @@ import styles from './Movies.module.css';
 import MoviesDialog from '../moviesDialog'
 import UpdateMoviesDialog from '../updateMoviesDialog'
 import withHocs from './moviesHOC';
+import MoviesSearch from '../moviesSearch'
 
 class Movies extends Component {
     constructor(){
@@ -10,7 +11,7 @@ class Movies extends Component {
         this.state = {
             isOpen: false,
             isUpdateMovieOpen: false,
-            currentMovieName: 'den',
+            currentMovieName: '',
             currentMovieGenre: '',
             currentMovieRate: '',
             currentMovieId: ''
@@ -27,6 +28,7 @@ class Movies extends Component {
          
         return (
             <div className="movies">
+                <MoviesSearch/>
                 <table>
                     <caption>Movies</caption>
                     <thead>
@@ -62,7 +64,7 @@ class Movies extends Component {
                                                                 currentMovieGenre: movie.genre,
                                                                 currentMovieRate: movie.rate,
                                                                 isUpdateMovieOpen: true,
-                                                            },()=>{console.log(this.state)})                                                           
+                                                            })                                                           
                                                         )}
                                                     }
                                                 > Edit </td>                                                       

@@ -3,7 +3,7 @@ import withHocs from './directorsHOC';
 import styles from './Directors.module.css';
 import DirectorsDialog from '../directorsDialog'
 import UpdateDirectorsDialog from '../updateDirectorsDialog'
-
+import DirectorsSearch from '../directorsSearch'
 class Directors extends Component {
     constructor() {
         super()
@@ -25,8 +25,9 @@ class Directors extends Component {
        const { directors = [] } = data;
 
         return (
-            <div className={styles.directors}>               
-                 <table>
+            <div className={styles.directors}>   
+                <DirectorsSearch/>            
+                <table>
                     <caption>Directors</caption>
                     <thead>
                         <tr>
