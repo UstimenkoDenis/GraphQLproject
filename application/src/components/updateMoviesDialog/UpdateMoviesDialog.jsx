@@ -48,6 +48,16 @@ class UpdateMoviesDialog extends Component {
         })
         onClose()       
     }
+
+    componentWillReceiveProps(newProps) {
+        const {name, genre, rate, directorId} = newProps
+        this.setState({
+            name,
+            genre,
+            rate,
+            directorId
+        })
+    }
     
     render() {  
         const { isUpdateMovieOpen, onClose, data = {}} = this.props   

@@ -10,8 +10,7 @@ class UpdateDirectorsDialog extends Component {
             name: '',
             age: 0
     } 
-    
-    
+        
     handleChangeName = (event) => {
         this.setState({
             name: event.target.value,            
@@ -29,6 +28,14 @@ class UpdateDirectorsDialog extends Component {
        onClose()       
     }
     
+    componentWillReceiveProps(newProps) {
+        const {name, age} = newProps
+        this.setState({
+            name,
+            age
+        })
+    }
+
     render() {  
         const {isUpdateOpen, onClose} = this.props      
         return (
