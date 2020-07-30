@@ -4,7 +4,7 @@ import styles from './DirectorSearch.module.css'
 export default class DirectorsSearch extends Component {
 
     render() {
-        const { name, handleChange} = this.props
+        const { name, handleChange, handleSearch} = this.props
         return (
             <>
                 <input 
@@ -12,7 +12,8 @@ export default class DirectorsSearch extends Component {
                     type="text" 
                     value={name} 
                     placeholder="Search..."
-                    onChange={handleChange}></input>
+                    onChange={handleChange('name')}
+                    onKeyPress={(e) => handleSearch(e)}></input>
             </>
         )
     }

@@ -12,7 +12,8 @@ class Directors extends Component {
             isUpdateOpen: false,
             currentDirectorId: '',
             currentDirectorName: '',
-            currentDirectorAge: 0
+            currentDirectorAge: 0,
+            name: ''
         }
     }
     
@@ -26,13 +27,28 @@ class Directors extends Component {
         })
     }
 
+    handleSearch = (e) => {
+        const { data } = this.props
+        const { name } = this.state
+        
+        if(e.charCode === 13) {            
+            data.fetchMore({
+                variables: { name },
+                updateQuery: (previousResult, { fetchMoreResult }) => fetchMoreResult,
+            });
+        }
+    }
+
     render() {
        const { data = {} } = this.props;
        const { directors = [] } = data;
 
         return (
             <div className={styles.directors}>   
-                <DirectorsSearch/>            
+                <DirectorsSearch 
+                        name={this.state.name}
+                        handleChange={this.handleChange}
+                        handleSearch={this.handleSearch}/>            
                 <table>
                     <caption>Directors</caption>
                     <thead>
