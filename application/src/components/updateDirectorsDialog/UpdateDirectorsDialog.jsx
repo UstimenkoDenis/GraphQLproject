@@ -5,13 +5,12 @@ import styles from './UpdateDirectorsDialog.module.css'
 import withHocs from './UpdateDirectorsDialogHOC'
 
 class UpdateDirectorsDialog extends Component {
-    constructor({ name, age }){
-        super()
-        this.state = {
-            name,
-            age
-        } 
-    }
+
+    state = {
+            name: '',
+            age: 0
+    } 
+    
     
     handleChangeName = (event) => {
         this.setState({
@@ -25,14 +24,13 @@ class UpdateDirectorsDialog extends Component {
         })
     } 
     handleUpdate = () => {
-       const {id, name, age, onClose, updateDirector} = this.props
-       console.log(id, name, age)
+       const {id, onClose, updateDirector} = this.props
        updateDirector({id, name: this.state.name, age: Number(this.state.age)})
        onClose()       
     }
     
     render() {  
-        const { name, age, isUpdateOpen, onClose} = this.props      
+        const {isUpdateOpen, onClose} = this.props      
         return (
             <>
                 { isUpdateOpen &&
@@ -44,11 +42,11 @@ class UpdateDirectorsDialog extends Component {
                             <div className={styles.modalBody}>
                                     <label>
                                         Name
-                                        <input type="text" value={this.state.name} onChange={this.handleChangeName} placeholder={name}/>
+                                        <input type="text" value={this.state.name} onChange={this.handleChangeName}/>
                                     </label>
                                     <label>
                                         Age
-                                        <input type="text"value={this.state.age} onChange={this.handleChangeAge} placeholder={age}/>
+                                        <input type="text"value={this.state.age} onChange={this.handleChangeAge}/>
                                     </label>                                                                   
                             </div>
                             <div className={styles.modalFooter}>

@@ -5,16 +5,13 @@ import styles from './UpdateMoviesDialog.module.css'
 import withHocs from './UpdateMoviesDialogHOC'
 
 class UpdateMoviesDialog extends Component {
-    constructor({name, genre, rate, directorId}){
-        super()          
-        this.state = {
-            name,
-            genre,
-            rate,
-            directorId
-        } 
-        console.log(name)
-    }
+              
+    state = {
+            name: '',
+            genre: '',
+            rate: 0,
+            directorId: ''
+    }     
     
     handleChangeName = (event) => {
         this.setState({
@@ -41,7 +38,7 @@ class UpdateMoviesDialog extends Component {
     }
 
     handleUpdate = () => {
-        const {id, name, genre, rate, onClose, updateMovie} = this.props
+        const {id, onClose, updateMovie} = this.props
         updateMovie({ 
             id,
             name: this.state.name, 
@@ -53,7 +50,7 @@ class UpdateMoviesDialog extends Component {
     }
     
     render() {  
-        const { name, genre, rate, directorId, isUpdateMovieOpen, onClose, data = {}} = this.props   
+        const { isUpdateMovieOpen, onClose, data = {}} = this.props   
         const { directors = [] } = data;     
         return (
             <>
@@ -70,11 +67,11 @@ class UpdateMoviesDialog extends Component {
                                     </label>
                                     <label>
                                         Genre
-                                        <input type="text"value={this.state.genre} onChange={this.handleChangeGenre} placeholder={genre}/>
+                                        <input type="text"value={this.state.genre} onChange={this.handleChangeGenre} />
                                     </label>    
                                     <label>
                                         Rate
-                                        <input type="text"value={+this.state.rate} onChange={this.handleChangeRate} placeholder={rate}/>
+                                        <input type="text"value={+this.state.rate} onChange={this.handleChangeRate} />
                                     </label>   
                                     <label>
                                         Director
