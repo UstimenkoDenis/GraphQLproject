@@ -5,17 +5,17 @@ import styles from './UpdateMoviesDialog.module.css'
 import withHocs from './UpdateMoviesDialogHOC'
 
 class UpdateMoviesDialog extends Component {
-    constructor(props){
-        super()
-          
+    constructor({name, genre, rate, directorId}){
+        super()          
         this.state = {
-            name: '',
-            genre: '',
-            rate: '',
-            directorId: '',
+            name,
+            genre,
+            rate,
+            directorId
         } 
+        console.log(name)
     }
-   
+    
     handleChangeName = (event) => {
         this.setState({
             name: event.target.value,            
@@ -30,7 +30,7 @@ class UpdateMoviesDialog extends Component {
 
     handleChangeRate = (event) => {
         this.setState({
-            rate: event.target.value,            
+            rate: event.target.value.replace(/[^0-9]/ig,''),            
         })
     } 
 
@@ -61,12 +61,12 @@ class UpdateMoviesDialog extends Component {
                     <div className={styles.modalOverlay}>
                         <div className={styles.modalWindow}>
                             <div className={styles.modalHeader}>
-                                <div className={styles.modalTitle}>Update Director</div>                            
+                                <div className={styles.modalTitle}>Update Movie</div>                            
                             </div>
                             <div className={styles.modalBody}>                                
                                     <label>
                                         Name
-                                        <input type="text" value={this.state.name} onChange={this.handleChangeName} placeholder={name}/>
+                                        <input type="text" value={this.state.name} onChange={this.handleChangeName} />
                                     </label>
                                     <label>
                                         Genre
@@ -74,7 +74,7 @@ class UpdateMoviesDialog extends Component {
                                     </label>    
                                     <label>
                                         Rate
-                                        <input type="text"value={this.state.rate} onChange={this.handleChangeRate} placeholder={rate}/>
+                                        <input type="text"value={+this.state.rate} onChange={this.handleChangeRate} placeholder={rate}/>
                                     </label>   
                                     <label>
                                         Director

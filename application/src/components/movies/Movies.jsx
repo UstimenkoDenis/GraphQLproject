@@ -5,14 +5,18 @@ import UpdateMoviesDialog from '../updateMoviesDialog'
 import withHocs from './moviesHOC';
 
 class Movies extends Component {
-    state = {
-        isOpen: false,
-        isUpdateMovieOpen: false,
-        currentMovieName: '',
-        currentMovieGenre: '',
-        currentMovieRate: 0,
-        currentMovieId: ''
-    }    
+    constructor(){
+        super()
+        this.state = {
+            isOpen: false,
+            isUpdateMovieOpen: false,
+            currentMovieName: 'den',
+            currentMovieGenre: '',
+            currentMovieRate: '',
+            currentMovieId: ''
+        }  
+    }
+      
     handleClose = () => {        
         this.setState({ isOpen: false, isUpdateMovieOpen: false, })
     }
@@ -53,12 +57,12 @@ class Movies extends Component {
                                                     onClick={ () => {
                                                         return (                                                            
                                                             this.setState({ 
-                                                                isUpdateMovieOpen: true,
                                                                 currentMovieName: movie.name,
                                                                 currentMovieId: movie.id,
                                                                 currentMovieGenre: movie.genre,
-                                                                currentMovieRate: movie.rate
-                                                            })                                                           
+                                                                currentMovieRate: movie.rate,
+                                                                isUpdateMovieOpen: true,
+                                                            },()=>{console.log(this.state)})                                                           
                                                         )}
                                                     }
                                                 > Edit </td>                                                       

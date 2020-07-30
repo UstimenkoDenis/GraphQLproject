@@ -5,11 +5,11 @@ import styles from './UpdateDirectorsDialog.module.css'
 import withHocs from './UpdateDirectorsDialogHOC'
 
 class UpdateDirectorsDialog extends Component {
-    constructor(props){
+    constructor({ name, age }){
         super()
         this.state = {
-            name: '',
-            age:''
+            name,
+            age
         } 
     }
     
@@ -21,7 +21,7 @@ class UpdateDirectorsDialog extends Component {
 
     handleChangeAge = (event) => {
         this.setState({
-            age: event.target.value,            
+            age: event.target.value.replace(/[^0-9]/ig,'')            
         })
     } 
     handleUpdate = () => {

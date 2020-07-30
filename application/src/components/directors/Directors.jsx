@@ -5,13 +5,17 @@ import DirectorsDialog from '../directorsDialog'
 import UpdateDirectorsDialog from '../updateDirectorsDialog'
 
 class Directors extends Component {
-    state = {
-        isOpen: false,
-        isUpdateOpen: false,
-        currentDirectorId: '',
-        currentDirectorName: '',
-        currentDirectorAge: 0
+    constructor() {
+        super()
+        this.state = {
+            isOpen: false,
+            isUpdateOpen: false,
+            currentDirectorId: '',
+            currentDirectorName: '',
+            currentDirectorAge: ''
+        }
     }
+    
     handleClose = () => {        
         this.setState({ isOpen: false, isUpdateOpen: false })
     }
@@ -75,7 +79,7 @@ class Directors extends Component {
                 </table>
                 <DirectorsDialog 
                     id={this.state.currentDirectorId}
-                    title={this.state.currentDirectorName}
+                    name={this.state.currentDirectorName}
                     isOpen={this.state.isOpen}
                     onClose={this.handleClose}
                 > 

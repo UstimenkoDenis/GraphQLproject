@@ -28,7 +28,7 @@ class MovieForm extends Component {
 
     handleChangeRate = (event) => {
         this.setState({
-            rate: event.target.value,            
+            rate: event.target.value.replace(/[^0-9]/ig,''),            
         })
     }
 

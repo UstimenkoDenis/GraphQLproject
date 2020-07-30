@@ -12,14 +12,14 @@ class DirectorsDialog extends Component {
     }
     
     render() {  
-        const { title, isOpen, onClose, children } = this.props      
+        const { name, isOpen, onClose, children } = this.props      
         return (
             <>
                 { isOpen &&
                     <div className={styles.modalOverlay}>
                         <div className={styles.modalWindow}>
                             <div className={styles.modalHeader}>
-                                <div className={styles.modalTitle}>{title}</div>                            
+                                <div className={styles.modalTitle}>{name}</div>                            
                             </div>
                             <div className={styles.modalBody}>
                                 {children}
@@ -39,13 +39,13 @@ class DirectorsDialog extends Component {
 
 DirectorsDialog.propTypes = {
     isOpen: PropTypes.bool,
-    title: PropTypes.string,    
+    name: PropTypes.string,    
     onClose: PropTypes.func,    
     children: PropTypes.node
 };
 
 DirectorsDialog.defaultProps = {
-    title: 'Modal title',   
+    name: 'Modal title',   
     isOpen: false, 
     onClose: () => {},   
     children: null,

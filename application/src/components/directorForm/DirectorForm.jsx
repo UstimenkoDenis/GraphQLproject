@@ -21,7 +21,7 @@ class DirectorForm extends Component {
 
     handleChangeAge = (event) => {
         this.setState({
-            age: event.target.value,            
+            age: event.target.value.replace(/[^0-9]/ig,''),            
         })
     }
     
