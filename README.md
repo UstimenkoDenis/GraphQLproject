@@ -5,8 +5,8 @@
 
   To run, clone to your folder, install all dependencies, and run the command in the terminal
 
-   cd server
-   npm run dev
+    cd server
+    npm run dev
 
   Open a new terminal shell and enter
 
@@ -14,13 +14,13 @@
     npm run start
 
   Простейшая программа, включающая фронтенд и бэкенд позволяющая считывать и изменять данные из БД.
-  
+
   ## Технологии: React, GraphQL, Apollo, Express, Mongoose, MongoDB
 
   Для запуска клонируйте себе в папку, установите все зависимости, и запустите в терминале команду
 
-   cd server
-   npm run dev
+    cd server
+    npm run dev
 
   Откройте новую оболочку терминала и в ней введите
 
