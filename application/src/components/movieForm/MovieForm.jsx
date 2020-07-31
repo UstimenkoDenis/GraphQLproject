@@ -48,7 +48,6 @@ class MovieForm extends Component {
             directorId: this.state.directorId,
         });    
     }
-
     
     render() {
         const { data = {} } = this.props;
@@ -69,7 +68,7 @@ class MovieForm extends Component {
                 </label>   
                 <label>
                     Director
-                    <select value={this.state.director} onChange={this.handleChangeDirector}>
+                    <select onChange={this.handleChangeDirector}>
                         {   directors.map((director, i) => {
                                 return ( <option key={director.id} value={director.id}>{director.name}</option> )
                             }) }

@@ -6,9 +6,8 @@ import withHocs from './moviesHOC';
 import MoviesSearch from '../moviesSearch'
 
 class Movies extends Component {
-    constructor(){
-        super()
-        this.state = {
+
+    state = {
             isOpen: false,
             isUpdateMovieOpen: false,
             currentMovieName: '',
@@ -16,8 +15,7 @@ class Movies extends Component {
             currentMovieRate: 0,
             currentMovieId: '',
             name: ''
-        }  
-    }
+    }      
       
     handleChange = name => (event) => {
         this.setState({
@@ -107,9 +105,10 @@ class Movies extends Component {
                     id={this.state.currentMovieId}
                     name={this.state.currentMovieName}
                     rate={this.state.currentMovieRate}
-                    genre={this.state.currentMovieGenre}
-                    isUpdateMovieOpen={this.state.isUpdateMovieOpen}
-                    onClose={this.handleClose}                   
+                    genre={this.state.currentMovieGenre}                    
+                    isUpdateMovieOpen={this.state.isUpdateMovieOpen}                    
+                    onClose={this.handleClose}  
+                    data={this.props.data}                 
                 />                                            
             </div>
         )

@@ -5,13 +5,17 @@ import styles from './UpdateMoviesDialog.module.css'
 import withHocs from './UpdateMoviesDialogHOC'
 
 class UpdateMoviesDialog extends Component {
-              
-    state = {
+    constructor(props) {
+        super(props)
+        this.state = {
             name: '',
             genre: '',
             rate: 0,
-            directorId: ''
-    }     
+            directorId: '5ef90dbae092c32eb84fe826',   
+            dir: []                    
+        }         
+    }          
+        
     
     handleChangeName = (event) => {
         this.setState({
@@ -38,30 +42,38 @@ class UpdateMoviesDialog extends Component {
     }
 
     handleUpdate = () => {
+        
         const {id, onClose, updateMovie} = this.props
+        const { name, genre, rate, directorId} = this.state
         updateMovie({ 
             id,
-            name: this.state.name, 
-            genre: this.state.genre,
-            rate: Number(this.state.rate),              
-            directorId: this.state.directorId,
+            name, 
+            genre,
+            rate: Number(rate),              
+            directorId,
         })
         onClose()       
     }
 
     UNSAFE_componentWillReceiveProps(newProps) {
-        const {name, genre, rate, directorId} = newProps
-        this.setState({
+        const {name, genre, rate, data} = newProps             
+        this.setState({            
             name,
             genre,
-            rate,
-            directorId
-        })
+            rate                                   
+        })   
+        if(data.directors.length > 0){
+            this.setState({
+                dir: data.directors
+            })
+        }
     }
     
     render() {  
-        const { isUpdateMovieOpen, onClose, data = {}} = this.props   
-        const { directors = [] } = data;     
+        const { isUpdateMovieOpen, onClose, data = {} } = this.props   
+        const { directors = [] } = data; 
+        
+        // console.log(directors)
         return (
             <>
                 { isUpdateMovieOpen &&
@@ -85,8 +97,8 @@ class UpdateMoviesDialog extends Component {
                                     </label>   
                                     <label>
                                         Director
-                                        <select value={this.state.director} onChange={this.handleChangeDirector}>
-                                            {   directors.map((director, i) => {
+                                        <select onChange={this.handleChangeDirector}>
+                                            {   this.state.dir.map((director, i) => {
                                                     return ( <option key={director.id} value={director.id}>{director.name}</option> )
                                                 }) }
                                         </select>

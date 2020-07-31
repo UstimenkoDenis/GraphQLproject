@@ -27,8 +27,7 @@ class DirectorForm extends Component {
     
     handleSubmit = (event) => {
         event.preventDefault();
-        const { addDirector } = this.props;
-        console.log(this.props);
+        const { addDirector } = this.props;        
         addDirector({ 
             name: this.state.name, 
             age: Number(this.state.age), 

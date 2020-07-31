@@ -149,7 +149,7 @@ const Query = new GraphQLObjectType({
             type: new GraphQLList(DirectorType),
             args: { name: { type: GraphQLString }},
             resolve(parent, { name }) {               
-                return Directors.find({ name: { $regex: name, $options: 'i'}});
+                return Directors.find({ name: { $regex: name, $options: 'i' } });
             }
         }
     }

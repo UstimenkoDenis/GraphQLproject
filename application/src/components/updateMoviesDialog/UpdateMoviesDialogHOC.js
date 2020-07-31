@@ -5,13 +5,23 @@ import { updateMovieMutation } from './mutations';
 import { moviesQuery } from '../movies/queries';
 import { directorsQuery } from '../movieForm/queries';
 
-const withGraphqlUpdate = graphql(updateMovieMutation, {
-    props: ({ mutate }) => ({
-        updateMovie: movie => mutate({
-            variables: movie,
-            refetchQueries: [{ query: moviesQuery }],
+const withGraphQL = compose(
+    graphql(updateMovieMutation, {
+        props: ({ mutate }) => ({
+            updateMovie: movie => mutate({
+                variables: movie,
+                refetchQueries: [{ 
+                    query: moviesQuery,
+                    variables: { name: ''}, 
+                }],
+            }),
         }),
     }),
-});
+    graphql(directorsQuery, {
+        options: ({ name = '' }) => ({
+            variables: { name },            
+        }),
+    })
+) 
 
-export default compose(withGraphqlUpdate, graphql(directorsQuery));
+export default compose(withGraphQL);

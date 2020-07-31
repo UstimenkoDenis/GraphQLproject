@@ -8,7 +8,10 @@ const withGraphqlUpdate = graphql(updateDirectorMutation, {
     props: ({ mutate }) => ({
         updateDirector: director => mutate({
             variables: director,
-            refetchQueries: [{ query: directorsQuery }],
+            refetchQueries: [{ 
+                query: directorsQuery, 
+                variables: { name: ''}
+            }],
         }),
     }),
 });
